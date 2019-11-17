@@ -1,0 +1,110 @@
+/* Main CSS file. */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 30px;
+}
+
+.fancy-checkbox label, .fancy-select {
+  line-height: 30px;
+  font-size: 30px;
+  display: inline-block;
+  margin: 6px;
+  padding: 6px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  color: #bbb;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+}
+
+.fancy-checkbox > input[type="checkbox"] {
+  display: none;
+}
+
+.fancy-checkbox label:hover, .fancy-select {
+  background-color: rgb(216, 216, 216);
+  color: #333;
+}
+
+.fancy-checkbox input:checked + label {
+  background-color: #b4e9b4;
+  color: #333;
+}
+
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+#shortcut-container {
+  font-size: 20px;
+  margin-bottom: 80px; /* Make sure there's room to the footer */
+}
+
+#shortcut-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+#shortcut-container ul li {
+  list-style-type: none;
+}
+
+#shortcut-container ul li:nth-child(2n) {
+  background-color: #eeeeee;
+}
+
+@media (min-width: 800px) {
+  #shortcut-container {
+    column-count: 2;
+    column-gap: 10px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #shortcut-container {
+    column-count: 3; /* Divide the shortcuts into three columns */
+    column-gap: 10px;
+  }
+}
+
+.hidden { display: none; }
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #334;
+  height: 60px;
+  font-size: 15px;
+  line-height: 60px;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .5);
+}
+
+footer p { margin: 0; }
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer a:hover {
+  color: #88aaff;
+}
+
+/* Hide certain elements on Print */
+@media print {
+  html, body { font-size: 10pt; }
+  #shortcut-container { font-size: 8pt; column-count: 3; }
+  footer, #controls { display: none; }
+}

@@ -1,0 +1,14 @@
+# Add a title for your cheatsheet
+title: My custom Cheatsheet
+shortcuts:
+  # The script expects the keys crossplatform,
+  # darwin, win32, and linux, so don't remove them!
+  # If there are no keys, simply leave it empty.
+  crossplatform:
+    CmdOrCtrl+Comma: Open preferences
+  darwin:
+    Cmd+Ctrl+F: Toggle fullscreen
+  win32:
+    F11: Toggle fullscreen
+  linux:
+    F12: Toggle fullscreen

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>$title$</title>
+  $data$
+  $script$
+  $style$
+</head>
+
+<body>
+  <div class="container">
+    <h1>$title$</h1>
+    <div id="controls">
+      <label for="control-key" class="fancy-checkbox">
+        <input type="checkbox" value="yes" id="control-key" />
+        <label for="control-key">Ctrl</label>
+      </label>
+
+      <label for="command-key" class="fancy-checkbox">
+        <input type="checkbox" value="yes" id="command-key" />
+        <label for="command-key">Cmd</label>
+      </label>
+
+      <label for="alt-key" class="fancy-checkbox">
+        <input type="checkbox" value="yes" id="alt-key" />
+        <label for="alt-key">Alt/Option</label>
+      </label>
+
+      <label for="shift-key" class="fancy-checkbox">
+        <input type="checkbox" value="yes" id="shift-key" />
+        <label for="shift-key">Shift</label>
+      </label>
+
+      <select id="platform-select" class="fancy-select">
+        <option value="darwin">macOS</option>
+        <option value="win32">Windows</option>
+        <option value="linux">Linux</option>
+      </select>
+
+      <select id="layout-select" class="fancy-select">
+        $layout_options$
+      </select>
+    </div>
+    <div class="keyboard" id="mac">$keyboard_mac$</div>
+    <div class="keyboard" id="surface">$keyboard_surface$</div>
+
+    <!-- Displays the parsed shortcuts -->
+    <div id="shortcut-container"></div>
+  </div>
+  <footer>
+    <p>
+      Shortcut Mapper | &copy; 2019 by Hendrik Erz | <a href="https://www.zettlr.com" target="_blank"
+        rel="nofollow">zettlr.com</a>
+    </p>
+  </footer>
+</body>
+
+</html>

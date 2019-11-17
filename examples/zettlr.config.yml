@@ -1,0 +1,103 @@
+# This file configures the shortcut generator to
+# generate the shortcuts available within Zettlr.
+title: Zettlr Shortcuts
+shortcuts:
+  crossplatform:
+    CmdOrCtrl+,: Open preferences
+    CmdOrCtrl+Alt+,: Open PDF preferences
+    CmdOrCtrl+Q: Exit the app
+    CmdOrCtrl+N: Create a new file
+    CmdOrCtrl+Shift+N: Create a new directory
+    CmdOrCtrl+O: Open a new root directory
+    CmdOrCtrl+S: Save the current file
+    CmdOrCtrl+E: Export the current file
+    CmdOrCtrl+R: Rename the current file
+    CmdOrCtrl+J: Toggle distraction-free mode
+    CmdOrCtrl+Shift+R: Rename the current directory
+    CmdOrCtrl+Delete: Delete the current file
+    CmdOrCtrl+Shift+Delete: Delete the current directory
+    CmdOrCtrl+Shift+F: Focus the global search field
+    CmdOrCtrl+Alt+L: Switch between light and dark mode
+    CmdOrCtrl+Alt+S: Toggle file information
+    CmdOrCtrl+Shift+1: Toggles sidebar between directory tree and file list
+    CmdOrCtrl+Shift+ß: Toggles attachment sidebar
+    CmdOrCtrl+1: View most recent file 1
+    CmdOrCtrl+2: View most recent file 2
+    CmdOrCtrl+3: View most recent file 3
+    CmdOrCtrl+4: View most recent file 4
+    CmdOrCtrl+5: View most recent file 5
+    CmdOrCtrl+6: View most recent file 6
+    CmdOrCtrl+7: View most recent file 7
+    CmdOrCtrl+8: View most recent file 8
+    CmdOrCtrl+9: View most recent file 9
+    CmdOrCtrl+W: Close the current window
+    CmdOrCtrl+M: Minimise the current window
+    F1: Show documentation
+    F5: Reload renderer (Debug only)
+    CmdOrCtrl+Z: Undo
+    CmdOrCtrl+X: Cut
+    CmdOrCtrl+C: Copy
+    CmdOrCtrl+V: Paste
+    CmdOrCtrl+A: Select all text
+    CmdOrCtrl+Alt+C: Copy as HTML
+    CmdOrCtrl+Shift+C: Add new comment
+    CmdOrCtrl+Shift+V: Paste without formatting
+    CmdOrCtrl+B: Make bold
+    CmdOrCtrl+I: Make italic
+    CmdOrCtrl+K: Create link
+    CmdOrCtrl+F: Search file
+    CmdOrCtrl+L: Generate ID
+    CmdOrCtrl+0: Reset editor zoom
+    CmdOrCtrl+Minus: Decrease zoom
+    Tab: Indent or move forward one table cell
+    Shift+Tab: Outdent or move backward one table cell
+    Shift+Enter: Confirm footnote changes
+    Ctrl+Enter: Insert a line below and place cursor at start
+    Ctrl+Shift+Enter: Insert a line above and place cursor at start
+    Enter: Move to next table row
+    Esc: Close the current popup
+    Alt+Enter: Replace all occurrences during file search
+  darwin:
+    Cmd+Ctrl+F: Toggle fullscreen
+    Cmd+Alt+I: Open developer tools (Debug only)
+    Cmd+Alt+R: Add footnote
+    Cmd+Plus: Increase zoom
+    Ctrl+K: Emacs-style line killing. Deletes the part of the line after the cursor. If
+      that consists only of whitespace, the newline at the end of the line is also
+      deleted.
+    Cmd+D: Deletes the whole line under the cursor, including newline at the end.
+    Cmd+Y: Redo
+    Cmd+Shift+Z: Redo
+    Cmd+U: Redo the last change to the selection, or the last text change if no
+      selection changes remain.
+    Ctrl+A: Move the cursor to the start of the line
+    Ctrl+E: move the cursor to the end of the line.
+    Ctrl+P: Move the cursor up one line.
+    Ctrl+N: Move down one line.
+    Ctrl+Shift+V: Move up one screen
+    Ctrl+V: Move down one screen
+    Ctrl+B: Move the cursor one character left
+    Ctrl+F: Move the cursor one character right
+    Alt+B: Move the cursor one word left
+    Alt+F: Move the cursor one word right
+    Ctrl+H: Delete the character before the cursor.
+    Ctrl+D: Delete the character after the cursor.
+    Alt+Delete: Delete up to the start of the word before the cursor.
+    Alt+D: Delete up to the end of the word after the cursor.
+    Ctrl+T: Swap the characters at the cursor.
+  win32:
+    F11: Toggle fullscreen
+    Ctrl+Shift+I: Open developer tools (Debug only)
+    Ctrl+Alt+F: Add footnote
+    Ctrl+Shift+Plus: Increase zoom
+    Ctrl+D: Deletes the whole line under the cursor, including newline at the end.
+    Ctrl+Y: Redo
+    Ctrl+U: Undo the last change to the selection, or if there are no selection-only
+      changes at the top of the history, undo the last change
+    Alt+U: Redo the last change to the selection, or the last text change if no
+      selection changes remain.
+  linux:
+    F11: Toggle fullscreen
+    Ctrl+Shift+I: Open developer tools (Debug only)
+    Ctrl+Alt+F: Add footnote
+    Ctrl+Shift+Plus: Increase zoom

@@ -1,0 +1,85 @@
+# This file configures the shortcut generator to
+# generate the shortcuts available within KotOR 2.
+#
+# Don't you know the game? Then hop on the hype
+# train and test it out!
+title: Knights of the Old Republic II Shortcuts
+shortcuts:
+  crossplatform:
+  darwin:
+    Space: Pauses the game
+    Enter: Fires a turret
+    Escape: Open game menu
+    F4: Quick Save
+    F5: Quick Load
+    F8: Quick Save
+    1: Activate left action in the target menu
+    2: Activate center action in the target menu
+    3: Activate right action in the target menu
+    4: Activate "Friendly Force Power"
+    5: Use a Medical Box
+    6: Uses the current item in "Miscellaneous"
+    7: Uses a mine
+    Tab: Changes the party leader
+    Q: Cycle through targets from right to left
+    E: Cycle through targets from left to right
+    F: Uses the default action on a target
+    T: Shows tool tips
+    U: Open "Equip Character" screen
+    I: Open party inventory
+    O: Open the options menu
+    P: Open the player record sheet, or pause a mini-game
+    W: Move forwards
+    A: Turn camera left
+    S: Move backwards
+    D: Turn camera right
+    Z: Move left
+    C: Move right
+    F: Cancel all currently queued actions
+    G: Activate stealth mode
+    J: Open Messages and Feedback menu
+    K: Open Skills/Feats/Force Powers menu
+    L: Open quest menu
+    X: Move weapon around
+    V: Activate solo mode
+    M: Open map and party management
+    Ctrl: Move the mouse while holding to look around
+  win32:
+    Space: Pauses the game
+    Enter: Fires a turret
+    Escape: Open game menu
+    F4: Quick Save
+    F5: Quick Load
+    F8: Quick Save
+    1: Activate left action in the target menu
+    2: Activate center action in the target menu
+    3: Activate right action in the target menu
+    4: Activate "Friendly Force Power"
+    5: Use a Medical Box
+    6: Uses the current item in "Miscellaneous"
+    7: Uses a mine
+    Tab: Changes the party leader
+    Q: Cycle through targets from right to left
+    E: Cycle through targets from left to right
+    F: Uses the default action on a target
+    T: Shows tool tips
+    U: Open "Equip Character" screen
+    I: Open party inventory
+    O: Open the options menu
+    P: Open the player record sheet, or pause a mini-game
+    W: Move forwards
+    A: Turn camera left
+    S: Move backwards
+    D: Turn camera right
+    Z: Move left
+    C: Move right
+    F: Cancel all currently queued actions
+    G: Activate stealth mode
+    J: Open Messages and Feedback menu
+    K: Open Skills/Feats/Force Powers menu
+    L: Open quest menu
+    X: Move weapon around
+    V: Activate solo mode
+    M: Open map and party management
+    Ctrl: Move the mouse while holding to look around
+  linux:

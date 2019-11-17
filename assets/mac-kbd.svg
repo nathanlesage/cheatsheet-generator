@@ -1,0 +1,541 @@
+<!--
+  SVG image for a 79-key Mac Keyboard
+  ===================================
+
+  Created by: Hendrik Erz      <info@zettlr.com>
+  License:    CC BY-NC-SA 4.0  <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+
+  Terms of use
+  ============
+
+  You are free to:
+
+  * SHARE: Copy and redistribute the material in any medium or format
+  * ADAPT: Remix, transform, and built upon the material
+
+  Under the following terms:
+
+  * ATTRIBUTION: You must give appropriate credit, provide
+    a link to the license, and indicate if changes were made.
+    You may do so in any reasonable manner, but not in any
+    way that suggests the licensor endorses you or your use.
+  * NON-COMMERCIAL: You may not use the material for commercial
+    purposes.
+  * SHARE-ALIKE: If you remix, transform, or build upon the
+    material, you must distribute your contributions under the
+    same license as the original.
+
+  DO NOT REMOVE THIS LICENSE BLOCK.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 220">
+  <!--
+    Apple keyboards always have 79 keys (the small version w/o Numpad)
+    All possible layouts can be viewed here: https://support.apple.com/en-us/HT201794
+
+    Row 1: 14 keys (incl. one special, either Eject, on/off, or empty)
+    Row 2: 14 keys (incl. Backspace)
+    Row 3: 13 keys (plus Enter)
+    Row 4: 13 keys (plus Enter)
+    Row 5: 13 keys (incl. Shift)
+    Row 6: 11 keys (incl. Arrows)
+
+    All standard keys are addressed via x/y-coords (row:key), one-based index,
+    e.g.: key1-1 is accent/tilde, key2-1 is Q (on en-US layout). The special keys
+    are addressed via named IDs, that is: arrow-up, caps-lock, shift-right, etc.
+
+    NOTE: You can toggle the caps-lock state by adding/removing
+          the "on" class to it's indicator.
+   -->
+
+
+   <!-- GENERAL STYLES -->
+   <style type="text/css">
+       .keyboard-mac {
+         fill: #f0f0f8;
+         stroke: #333333;
+       }
+
+       .mac .indicator {
+         stroke: none;
+         fill: #c6c6cc;
+       }
+
+       .mac .indicator.on {
+         fill: #66cc66;
+       }
+
+       .mac .indicator.off {
+         fill: #c6c6cc;
+       }
+
+       /* .keyboard-keys namespacing enables custom theming. */
+       .mac.keyboard-keys rect.key, .mac.keyboard-keys #enter .key {
+         fill: #ffffff;
+         stroke: #333333;
+         rx: 2pt;
+         ry: 2pt;
+       }
+
+       .mac.keyboard-keys rect.key.highlight, .mac.keyboard-keys #enter .key.highlight {
+         fill: #ffaaaa;
+       }
+
+       .mac.keyboard-keys text {
+         fill: #333333;
+         stroke: none;
+         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+         font-size: 5pt;
+         text-anchor: middle;
+         dominant-baseline: middle;
+       }
+
+       .mac.keyboard-keys text.function-key-label {
+         font-size: 3pt;
+         dominant-baseline: baseline;
+       }
+
+       .mac.keyboard-keys text.regular-key-label {
+         font-size: 8pt; /* Make the regular key labels bigger */
+       }
+
+       .mac.keyboard-keys .icon-outline {
+         stroke: #333333;
+         fill: none;
+       }
+
+       .mac.keyboard-keys .icon-fill {
+         stroke: none;
+         fill: #333333;
+       }
+
+       .mac.keyboard-keys .icon-outline-reverse {
+         stroke: #333333;
+         fill: none;
+       }
+
+       .mac.keyboard-keys .icon-fill-reverse {
+         stroke: none;
+         fill: #333333;
+       }
+   </style>
+
+  <!-- First, draw the keyboard outline -->
+  <rect class="keyboard-mac" x="10" y="10" width="525" height="200" rx="5" ry="5" />
+
+  <!-- Namespace the keys for easy styling -->
+  <g class="mac keyboard-keys">
+    <!-- Row one: Function keys -->
+    <g id="escape">
+      <rect class="key" x="15" y="15" width="60" height="15" />
+      <text x="25" y="22.5" font-size="10" text-anchor="start">esc</text>
+    </g>
+    <g id="f1">
+      <rect class="key" x="80" y="15" width="30" height="15" />
+      <!-- Sun -->
+      <circle class="icon-outline" cx="95" cy="20" r="1" stroke-width="0.5" />
+      <!-- Eight points surrounding it -->
+      <circle class="icon-fill" cx="95" cy="17" r="0.5" />
+      <circle class="icon-fill" cx="97" cy="18" r="0.5" />
+      <circle class="icon-fill" cx="98" cy="20" r="0.5" />
+      <circle class="icon-fill" cx="97" cy="22" r="0.5" />
+      <circle class="icon-fill" cx="95" cy="23" r="0.5" />
+      <circle class="icon-fill" cx="93" cy="22" r="0.5" />
+      <circle class="icon-fill" cx="92" cy="20" r="0.5" />
+      <circle class="icon-fill" cx="93" cy="18" r="0.5" />
+      <text class="function-key-label" x="95" y="27.5">F1</text>
+    </g>
+    <g id="f2">
+      <rect class="key" x="115" y="15" width="30" height="15" />
+      <!-- Sun -->
+      <circle class="icon-outline" cx="130" cy="20" r="1" stroke-width="0.5" />
+      <!-- Eight points surrounding it -->
+      <ellipse class="icon-fill" cx="130" cy="17" rx="0.5" ry="1" />
+      <ellipse class="icon-fill" cx="132" cy="18" rx="0.5" ry="1" transform="rotate(45 132 18)" />
+      <ellipse class="icon-fill" cx="133" cy="20" rx="1" ry="0.5" />
+      <ellipse class="icon-fill" cx="132" cy="22" rx="0.5" ry="1" transform="rotate(-45 132 22)"  />
+      <ellipse class="icon-fill" cx="130" cy="23" rx="0.5" ry="1" />
+      <ellipse class="icon-fill" cx="128" cy="22" rx="0.5" ry="1" transform="rotate(45 128 22)"  />
+      <ellipse class="icon-fill" cx="127" cy="20" rx="1" ry="0.5" />
+      <ellipse class="icon-fill" cx="128" cy="18" rx="0.5" ry="1" transform="rotate(-45 128 18)"  />
+      <text class="function-key-label" x="130" y="27.5">F2</text>
+    </g>
+    <g id="f3">
+      <rect class="key" x="150" y="15" width="30" height="15" />
+      <!-- Three windows -->
+      <rect class="icon-outline" x="161" y="18" width="5" height="2.2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="162.5" y="21.5" width="4" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="168" y="18.5" width="3" height="4.5" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <text class="function-key-label" x="165" y="27.5">F3</text>
+    </g>
+    <g id="f4">
+      <rect class="key" x="185" y="15" width="30" height="15" />
+      <!-- Six windows -->
+      <rect class="icon-outline" x="196" y="18" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="199" y="18" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="202" y="18" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="196" y="21" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="199" y="21" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <rect class="icon-outline" x="202" y="21" width="2" height="2" rx="0.5" ry="0.5" stroke-width="0.5" />
+      <text class="function-key-label" x="200" y="27.5">F4</text>
+    </g>
+    <g id="f5">
+      <rect class="key" x="220" y="15" width="30" height="15" />
+      <!-- A small rising sun -->
+      <line class="icon-outline" x1="233" y1="22" x2="237" y2="22" stroke-width="0.5" />
+      <!-- Five rays -->
+      <line class="icon-outline" x1="229" y1="22" x2="232" y2="22" stroke-width="0.5" />
+      <line class="icon-outline" x1="231.5" y1="18.5" x2="233" y2="20.5" stroke-width="0.5" />
+      <line class="icon-outline" x1="235" y1="18" x2="235" y2="20" stroke-width="0.5" />
+      <line class="icon-outline" x1="237" y1="20.5" x2="239" y2="18.5" stroke-width="0.5" />
+      <line class="icon-outline" x1="238" y1="22" x2="241" y2="22" stroke-width="0.5" />
+      <text class="function-key-label" x="235" y="27.5">F5</text>
+    </g>
+    <g id="f6">
+      <rect class="key" x="255" y="15" width="30" height="15" />
+      <!-- A somewhat bigger rising sun -->
+      <line class="icon-outline" x1="268" y1="22" x2="272" y2="22" />
+      <!-- Five rays -->
+      <line class="icon-outline" x1="263" y1="22" x2="266" y2="22" />
+      <line class="icon-outline" x1="265.5" y1="18" x2="267.5" y2="20" />
+      <line class="icon-outline" x1="270" y1="17" x2="270" y2="20" />
+      <line class="icon-outline" x1="272.5" y1="20" x2="274.5" y2="18" />
+      <line class="icon-outline" x1="274" y1="22" x2="277" y2="22" />
+      <text class="function-key-label" x="270" y="27.5">F6</text>
+    </g>
+    <g id="f7">
+      <rect class="key" x="290" y="15" width="30" height="15" />
+      <!-- Reverse -->
+      <polygon class="icon-outline" points="302,21 305,19.5 305,22.5" stroke-width="0.5" />
+      <polygon class="icon-outline" points="306,21 309,19.5 309,22.5" stroke-width="0.5" />
+      <text class="function-key-label" x="305" y="27.5">F7</text>
+    </g>
+    <g id="f8">
+      <rect class="key" x="325" y="15" width="30" height="15" />
+      <!-- Play/Pause -->
+      <polygon class="icon-outline" points="340,21 337,19.5 337,22.5" stroke-width="0.5" />
+      <line class="icon-outline" x1="341.5" y1="19" x2="341.5" y2="23" stroke-width="0.5" />
+      <line class="icon-outline" x1="343" y1="19" x2="343" y2="23" stroke-width="0.5" />
+      <text class="function-key-label" x="340" y="27.5">F8</text>
+    </g>
+    <g id="f9">
+      <rect class="key" x="360" y="15" width="30" height="15" />
+      <!-- Fast Forward -->
+      <polygon class="icon-outline" points="375,21 372,19.5 372,22.5" stroke-width="0.5" />
+      <polygon class="icon-outline" points="379,21 376,19.5 376,22.5" stroke-width="0.5" />
+      <text class="function-key-label" x="375" y="27.5">F9</text>
+    </g>
+    <g id="f10">
+      <rect class="key" x="395" y="15" width="30" height="15" />
+      <!-- Mute -->
+      <path class="icon-outline" d="M407 19 l2 0 l1 -1 q1 -1 1 0 l0 4 q0 1 -1 0 l-1 -1 l-2 0 Z" stroke-width="0.5" />
+      <text class="function-key-label" x="410" y="27.5">F10</text>
+    </g>
+    <g id="f11">
+      <rect class="key" x="430" y="15" width="30" height="15" />
+      <!-- Decrease volume -->
+      <path class="icon-outline" d="M441 19 l2 0 l1 -1 q1 -1 1 0 l0 4 q0 1 -1 0 l-1 -1 l-2 0 Z" stroke-width="0.5" />
+      <path class="icon-outline" d="M447 18 q1 2 0 4" stroke-width="0.5" />
+      <text class="function-key-label" x="445" y="27.5">F11</text>
+    </g>
+    <g id="f12">
+      <rect class="key" x="465" y="15" width="30" height="15" />
+      <!-- Increase volume -->
+      <path class="icon-outline" d="M476 19 l2 0 l1 -1 q1 -1 1 0 l0 4 q0 1 -1 0 l-1 -1 l-2 0 Z" stroke-width="0.5" />
+      <path class="icon-outline" d="M482    18   q1   2   0 4" stroke-width="0.5" />
+      <path class="icon-outline" d="M483.25 17.5 q1.5 2.5 0 5" stroke-width="0.5" />
+      <path class="icon-outline" d="M484.5  17   q2   3   0 6" stroke-width="0.5" />
+      <text class="function-key-label" x="480" y="27.5">F12</text>
+    </g>
+    <!-- Special key (Eject on magic keyboards, on/off on laptops -->
+    <g id="special">
+      <rect class="key" x="500" y="15" width="30" height="15" />
+      <text class="regular-key-label" x="515" y="22.5"></text>
+    </g>
+
+    <!-- Row two: Numbers and Backspace -->
+    <g id="key1-1">
+      <rect class="key" x="15"  y="35" width="30" height="30" />
+      <text class="regular-key-label" x="30" y="50"></text>
+    </g>
+    <g id="key1-2">
+      <rect class="key" x="50"  y="35" width="30" height="30" />
+      <text class="regular-key-label" x="65" y="50"></text>
+    </g>
+    <g id="key1-3">
+      <rect class="key" x="85"  y="35" width="30" height="30" />
+      <text class="regular-key-label" x="100" y="50"></text>
+    </g>
+    <g id="key1-4">
+      <rect class="key" x="120" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="135" y="50"></text>
+    </g>
+    <g id="key1-5">
+      <rect class="key" x="155" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="170" y="50"></text>
+    </g>
+    <g id="key1-6">
+      <rect class="key" x="190" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="205" y="50"></text>
+    </g>
+    <g id="key1-7">
+      <rect class="key" x="225" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="240" y="50"></text>
+    </g>
+    <g id="key1-8">
+      <rect class="key" x="260" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="275" y="50"></text>
+    </g>
+    <g id="key1-9">
+      <rect class="key" x="295" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="310" y="50"></text>
+    </g>
+    <g id="key1-10">
+      <rect class="key" x="330" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="345" y="50"></text>
+    </g>
+    <g id="key1-11">
+      <rect class="key" x="365" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="380" y="50"></text>
+    </g>
+    <g id="key1-12">
+      <rect class="key" x="400" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="415" y="50"></text>
+    </g>
+    <g id="key1-13">
+      <rect class="key" x="435" y="35" width="30" height="30" />
+      <text class="regular-key-label" x="450" y="50"></text>
+    </g>
+    <g id="backspace">
+      <rect class="key" x="470" y="35" width="60" height="30" />
+      <path class="icon-outline" d="M517 52 L523 52 Q525 52 525 54 L525 58 Q525 60 523 60 L517 60 L512 56 Z" />
+      <line class="icon-outline" x1="519" y1="54" x2="523" y2="58" />
+      <line class="icon-outline" x1="519" y1="58" x2="523" y2="54" />
+    </g>
+
+    <!-- Row three: Tab and Enter (part 1) -->
+    <g id="tab">
+      <rect class="key" x="15"  y="70" width="50" height="30" />
+      <line class="icon-outline" x1="22" y1="92" x2="35" y2="92" />
+      <path class="icon-outline" d="M30 89 l5 3 l-5 3" />
+      <line class="icon-outline" x1="37" y1="88" x2="37" y2="96" />
+    </g>
+    <g id="key2-1">
+      <rect class="key" x="70"  y="70" width="30" height="30" />
+      <text class="regular-key-label" x="85" y="85"></text>
+    </g>
+    <g id="key2-2">
+      <rect class="key" x="105" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="120" y="85"></text>
+    </g>
+    <g id="key2-3">
+      <rect class="key" x="140" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="155" y="85"></text>
+    </g>
+    <g id="key2-4">
+      <rect class="key" x="175" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="190" y="85"></text>
+    </g>
+    <g id="key2-5">
+      <rect class="key" x="210" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="225" y="85"></text>
+    </g>
+    <g id="key2-6">
+      <rect class="key" x="245" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="260" y="85"></text>
+    </g>
+    <g id="key2-7">
+      <rect class="key" x="280" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="295" y="85"></text>
+    </g>
+    <g id="key2-8">
+      <rect class="key" x="315" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="330" y="85"></text>
+    </g>
+    <g id="key2-9">
+      <rect class="key" x="350" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="365" y="85"></text>
+    </g>
+    <g id="key2-10">
+      <rect class="key" x="385" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="400" y="85"></text>
+    </g>
+    <g id="key2-11">
+      <rect class="key" x="420" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="435" y="85"></text>
+    </g>
+    <g id="key2-12">
+      <rect class="key" x="455" y="70" width="30" height="30" />
+      <text class="regular-key-label" x="470" y="85"></text>
+    </g>
+
+    <!-- Starting point for Enter is the topleft corner -->
+    <g id="enter">
+      <path class="key" d="M495 70 l32 0 q3 0 3 3 l0 59 q0 3 -3 3 l-24 0 q-3 0 -3 -3 l0 -29 q0 -3 -3 -3 l-4 0 q-3 0 -3 -3 l0 -24 q0 -3 3 -3 Z" />
+      <path class="icon-outline" d="M510 85 L518 85 Q520 85 520 87 L520 90 Q520 92 518 92 L505 92" />
+      <path class="icon-outline" d=" M510 89 l-5 3 l5 3" />
+    </g>
+
+    <!-- Row four: Caps and Enter (part 2) -->
+    <g id="caps-lock">
+      <rect class="key" x="15" y="105" width="60" height="30" />
+      <circle class="indicator on" id="caps-status" cx="22" cy="112" r="2" />
+      <path class="icon-outline" d="M26 124  l0 -3 l-2 0 l5 -5 l5 5 l-2 0 l0 3 Z" />
+      <rect class="icon-outline" x="26" y="126" width="6" height="4" rx="1" ry="1" />
+    </g>
+    <g id="key3-1">
+      <rect class="key" x="80" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="95" y="120"></text>
+    </g>
+    <g id="key3-2">
+      <rect class="key" x="115" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="130" y="120"></text>
+    </g>
+    <g id="key3-3">
+      <rect class="key" x="150" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="165" y="120"></text>
+    </g>
+    <g id="key3-4">
+      <rect class="key" x="185" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="200" y="120"></text>
+    </g>
+    <g id="key3-5">
+      <rect class="key" x="220" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="235" y="120"></text>
+    </g>
+    <g id="key3-6">
+      <rect class="key" x="255" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="270" y="120"></text>
+    </g>
+    <g id="key3-7">
+      <rect class="key" x="290" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="305" y="120"></text>
+    </g>
+    <g id="key3-8">
+      <rect class="key" x="325" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="340" y="120"></text>
+    </g>
+    <g id="key3-9">
+      <rect class="key" x="360" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="375" y="120"></text>
+    </g>
+    <g id="key3-10">
+      <rect class="key" x="395" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="410" y="120"></text>
+    </g>
+    <g id="key3-11">
+      <rect class="key" x="430" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="445" y="120"></text>
+    </g>
+    <g id="key3-12">
+      <rect class="key" x="465" y="105" width="30" height="30" />
+      <text class="regular-key-label" x="480" y="120"></text>
+    </g>
+
+    <!-- Row five: Both Shifts -->
+    <g id="shift-left">
+      <rect class="key" x="15" y="140" width="45" height="30" />
+      <path class="icon-outline" d="M26 165 l0 -3 l-2 0 l5 -5 l5 5 l-2 0 l0 3 Z" />
+    </g>
+    <g id="key4-1">
+      <rect class="key" x="65" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="80" y="155"></text>
+    </g>
+    <g id="key4-2">
+      <rect class="key" x="100" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="115" y="155"></text>
+    </g>
+    <g id="key4-3">
+      <rect class="key" x="135" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="150" y="155"></text>
+    </g>
+    <g id="key4-4">
+      <rect class="key" x="170" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="185" y="155"></text>
+    </g>
+    <g id="key4-5">
+      <rect class="key" x="205" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="220" y="155"></text>
+    </g>
+    <g id="key4-6">
+      <rect class="key" x="240" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="255" y="155"></text>
+    </g>
+    <g id="key4-7">
+      <rect class="key" x="275" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="290" y="155"></text>
+    </g>
+    <g id="key4-8">
+      <rect class="key" x="310" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="325" y="155"></text>
+    </g>
+    <g id="key4-9">
+      <rect class="key" x="345" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="360" y="155"></text>
+    </g>
+    <g id="key4-10">
+      <rect class="key" x="380" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="395" y="155"></text>
+    </g>
+    <g id="key4-11">
+      <rect class="key" x="415" y="140" width="30" height="30" />
+      <text class="regular-key-label" x="430" y="155"></text>
+    </g>
+    <g id="shift-right">
+      <rect class="key" x="450" y="140" width="80" height="30" />
+      <path class="icon-outline" d="M516 165 l0 -3 l-2 0 l5 -5 l5 5 l-2 0 l0 3 Z" />
+    </g>
+
+    <!-- Row six: The control section -->
+    <g id="fn">
+      <rect class="key" x="15" y="175" width="30" height="30" />
+      <text x="25" y="200">fn</text>
+    </g>
+    <g id="control">
+      <rect class="key" x="50" y="175" width="30" height="30" />
+      <path class="icon-outline" d="M70 184 l3 -3 l3 3" />
+      <text x="65" y="200">control</text>
+    </g>
+    <g id="option-left">
+      <rect class="key" x="85" y="175" width="30" height="30" />
+      <path class="icon-outline" d="M100 181 l3 0 l2 3 l4 0" />
+      <line class="icon-outline" x1="105" y1="181" x2="109" y2="181" />
+      <text x="100" y="200">option</text>
+    </g>
+    <g id="command-left">
+      <rect class="key" x="120" y="175" width="45" height="30" />
+      <path class="icon-outline" d="M153 182 l5 0 c3 -1 0 -4 -1 -1 l0 5 c1 3 4 0 1 -1 l-5 0 c-3 1 0 4 1 1 l0 -5 c-1 -3 -4 0 -1 1 Z" />
+      <text x="145" y="200">command</text>
+    </g>
+    <g id="space">
+      <rect class="key" x="170" y="175" width="170" height="30" />
+      <text x="255" y="200"></text>
+    </g>
+    <g id="command-right">
+      <rect class="key" x="345" y="175" width="45" height="30" />
+      <path class="icon-outline" d="M352 182 l5 0 c3 -1 0 -4 -1 -1 l0 5 c1 3 4 0 1 -1 l-5 0 c-3 1 0 4 1 1 l0 -5 c-1 -3 -4 0 -1 1 Z" />
+      <text x="365" y="200">command</text>
+    </g>
+    <g id="option-right">
+      <rect class="key" x="395" y="175" width="30" height="30" />
+      <path class="icon-outline" d="M400 181 l3 0 l2 3 l4 0" />
+      <line class="icon-outline" x1="405" y1="181" x2="409" y2="181" />
+      <text x="410" y="200">option</text>
+    </g>
+    <g id="arrow-left">
+      <rect class="key" x="430" y="175" width="30" height="30" />
+      <polygon class="icon-fill" points="443,190 447,188 447,192" />
+    </g>
+    <g id="arrow-up">
+      <rect class="key" x="465" y="175" width="30" height="15" />
+      <polygon class="icon-fill" points="478,184 480,180 482,184" />
+    </g>
+    <g id="arrow-down">
+      <rect class="key" x="465" y="190" width="30" height="15" />
+      <polygon class="icon-fill" points="478,196 480,200 482,196" />
+    </g>
+    <g id="arrow-right">
+      <rect class="key" x="500" y="175" width="30" height="30" />
+      <polygon class="icon-fill" points="513,188 517,190 513,192" />
+    </g>
+  </g> <!-- END keyboard-keys -->
+</svg>

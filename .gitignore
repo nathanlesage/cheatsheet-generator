@@ -1,0 +1,5 @@
+/intermediary
+/dist
+/node_modules
+config.yml
+/**/.DS_STORE
