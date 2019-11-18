@@ -2,6 +2,8 @@
 
 > Transforms your application shortcuts into beautiful and comprehensive interactive graphics.
 
+[Check out the demo on Zettlr's main website](https://zettlr.com/shortcuts)!
+
 ![Apple macOS keyboard](./assets/mac-kbd.svg)
 
 * Do you develop an application but tend to lose sight over the shortcuts you already built into your app?
