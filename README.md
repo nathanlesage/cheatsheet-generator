@@ -31,7 +31,7 @@ However, this means:
 * This tool is not designed to be used as an on-screen keyboard. You can certainly use it that way, but then the tool around the SVG-files won’t be necessary.
 * I only included two keyboards, because you don't need more, and these were already hard to code (I wrote the SVG files by hand and decided against a dedicated app to maintain readability and DRY).
 * "Why a Surface keyboard?" There's a litany of different keyboards out there, and when I have to decide, I use the one from the same company which makes the software for these keyboards in the first place. It should also work for Linux, because, you know, there's no such thing as dedicated linux keyboards (at least not well-known).
-* Keys that are secondary on certain keyboard layouts (that is, you need to press the Shift-key to reach it) are not supported. Use `Shift+<the default key>` instead.
+* ~~Keys that are secondary on certain keyboard layouts (that is, you need to press the Shift-key to reach it) are not supported. Use `Shift+<the default key>` instead.~~ Layer 2 and Layer 3 support is now available.
 
 ## Adding shortcuts
 
@@ -57,8 +57,6 @@ Adding shortcuts works by adding them as key:value-pairs to the config. Delimit 
 - `Delete` (will fall back to `Backspace` on macOS!)
 - `Space`
 - `Special` (the special key in the top-right corner of macOS keyboards, mostly Eject or On/Off)
-
-Keys that are secondary on certain keyboard layouts (that is, you need to press the Shift-key to reach it) are not supported. Use `Shift+<the default key>` instead.
 
 ## License
 
