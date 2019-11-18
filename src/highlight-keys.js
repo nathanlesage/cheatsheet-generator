@@ -54,7 +54,7 @@ export default function highlightKeys (maps) {
   } else if (ctrlKey && altKey && shiftKey && !cmdKey) {
     map = maps['Ctrl+Alt+Shift']
   } else if (ctrlKey && shiftKey && !cmdKey && !altKey) {
-    map = maps['Ctrl+Alt']
+    map = maps['Ctrl+Shift']
   } else if (ctrlKey && altKey && !cmdKey && !shiftKey) {
     map = maps['Ctrl+Alt']
   } else if (cmdKey && altKey && shiftKey && !ctrlKey) {
@@ -69,6 +69,8 @@ export default function highlightKeys (maps) {
     map = maps['Cmd']
   } else if (ctrlKey && !cmdKey && !altKey && !shiftKey) {
     map = maps['Ctrl']
+  } else if (shiftKey && !cmdKey && !altKey && !ctrlKey) {
+    map = maps['Shift']
   } else if(!ctrlKey && !cmdKey && !altKey && !shiftKey) {
     map = maps['vanilla']
   }
@@ -81,7 +83,31 @@ export default function highlightKeys (maps) {
     for (var k of keys) {
       // Resolve CmdOrCtrl-shortcuts
       if (k === 'cmdorctrl') k = (platform === 'mac') ? 'cmd' : 'ctrl'
-      var highlight = document.querySelectorAll('#' + resolveKey(k, layout, platform))
+
+      // Next, resolve the corresponding key. It may reside on layer 1, 2, or 3.
+      var resolvedKey = resolveKey(k, layout, platform)
+      if (resolvedKey.length !== 1) {
+        console.warn('Received multiple mappings for key ' + k + ' on layout ' + layout + ' and platform ' + platform, resolvedKey)
+        continue
+      }
+
+      resolvedKey = resolvedKey[0]
+
+      // In case of layer 2, we need to make sure to highlight the shift-key as
+      // well. We can do it multiple times, as the engine is smart enough to
+      // figure out it shouldn't add it multiple times. For layer 3, highlight
+      // the right Alt-key (why right? Because that's where you get the AltGr
+      // functionality on Windows keyboards. On macOS, please figure out that
+      // either option works.)
+      var resolveSelectors = '#' + resolvedKey.key
+      if (resolvedKey.layer === 'layer2') {
+        resolveSelectors += ', #shift-left'
+      }
+      if (resolvedKey.layer === 'layer3') {
+        resolveSelectors += (platform === 'mac') ? ', #option-left' : ', #alt-left'
+      }
+
+      var highlight = document.querySelectorAll(resolveSelectors)
       if (!highlight) {
         console.warn('No mapping to key ' + k + ' on layout ' + layout + ' and platform ' + platform)
         continue
@@ -99,7 +125,7 @@ export default function highlightKeys (maps) {
   for (var cut of map) {
     var sanitizedShortcut = cut.shortcut.replace('CmdOrCtrl', (platform === 'mac') ? 'Cmd' : 'Ctrl')
     var item = document.createElement('li')
-    item.innerHTML = `<strong>${sanitizedShortcut}</strong>: ${cut.description}`
+    item.innerHTML = `<strong class="shortcut">${sanitizedShortcut}</strong>: ${cut.description}`
     list.appendChild(item)
   }
 

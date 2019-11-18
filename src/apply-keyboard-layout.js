@@ -29,7 +29,7 @@ export default function applyKeyboardLayout (objectId, platform, layout) {
   if (!layout) throw new Error('To apply a keyboard layout, please specify the layout.')
 
   // Retrieve the keyboard from the DOM
-  var kbd = document.getElementById(objectId) // .contentDocument
+  var kbd = document.getElementById(objectId)
 
   // Get all keys present on the keyboard
   var keys = kbd.getElementsByClassName('key')
@@ -38,20 +38,29 @@ export default function applyKeyboardLayout (objectId, platform, layout) {
   for (var key of keys) {
     // Get its parent, as the parent contains the key's ID
     var id = key.parentNode.getAttribute('id')
-    // Also, retrieve the corresponding label node to append the text to
-    var labelNode = key.parentNode.getElementsByTagName('text')[0]
 
     // We only apply the variable keys here
     if (id.indexOf('key') !== 0) continue
     // Retrieve the correct letter for that key by reverse-searching the layout
-    var letter = resolveKey(id, layout, platform, 'id')
-    if (!letter) {
+    var labels = resolveKey(id, layout, platform, 'id')
+    if (labels.length === 0) {
       console.warn('Could not find letter for ID ' + id)
       continue
     }
-    // Now create a text node and apply it to the key.
-    var label = document.createTextNode(letter)
-    labelNode.innerHTML = ''
-    labelNode.appendChild(label)
+
+    // Before we touch anything on this key, get rid of all previous labels
+    for (var i = 1; i < 4; i++) { // Why a loop? There are keys w/o layer2 and 3
+      var node = key.parentNode.getElementsByClassName('layer' + i + '-key-label')
+      if (node.length > 0) node[0].innerHTML = ''
+    }
+
+    for (let label of labels) {
+      // Then, retrieve the label node (there's only one layer1/2/3 label per key)
+      var labelNode = key.parentNode.getElementsByClassName(label.layer + '-key-label')[0]
+      // Create a text node and add it to the key.
+      var text = document.createTextNode(label.key)
+      labelNode.innerHTML = ''
+      labelNode.appendChild(text)
+    }
   }
 }

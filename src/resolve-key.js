@@ -47,15 +47,15 @@ export default function resolveKey (key, layout, platform, searchBy = 'key') {
   ]
 
   // Return sane defaults for some of the optional keys
-  if (key === 'alt' && sanitisedPlatform === 'surface') return 'alt-left'
-  if (key === 'alt' && sanitisedPlatform === 'mac') return 'option-left'
-  if (key === 'option') return 'option-left'
-  if (key === 'cmd') return 'command-left'
-  if (key === 'shift') return 'shift-left'
-  if (key === 'ctrl') return 'control'
-  if (key === 'esc') return 'escape'
-  if (key === 'delete' && sanitisedPlatform === 'mac') return 'backspace'
-  if (specialKeys.includes(key)) return key // Easy way out
+  if (key === 'alt' && sanitisedPlatform === 'surface') return [{ 'key': 'alt-left', 'layer': 'layer1' }]
+  if (key === 'alt' && sanitisedPlatform === 'mac') return [{ 'key': 'option-left', 'layer': 'layer1' }]
+  if (key === 'option') return [{ 'key': 'option-left', 'layer': 'layer1' }]
+  if (key === 'cmd') return [{ 'key': 'command-left', 'layer': 'layer1' }]
+  if (key === 'shift') return [{ 'key': 'shift-left', 'layer': 'layer1' }]
+  if (key === 'ctrl') return [{ 'key': 'control', 'layer': 'layer1' }]
+  if (key === 'esc') return [{ 'key': 'escape', 'layer': 'layer1' }]
+  if (key === 'delete' && sanitisedPlatform === 'mac') return [{ 'key': 'backspace', 'layer': 'layer1' }]
+  if (specialKeys.includes(key)) return [{ 'key': key, 'layer': 'layer1' }] // Easy way out
 
 
   // Whenever a user uses words instead of the characters
@@ -65,8 +65,28 @@ export default function resolveKey (key, layout, platform, searchBy = 'key') {
 
 
   // Now we got the correct layout. Search for the thing!
-  for (var id in map) {
-    if (searchBy === 'key' && map[id].toLowerCase() === key) return id
-    if (searchBy === 'id' && id.toLowerCase() === key) return map[id]
+  let ret = [] // Collect all potential keys
+  for (var layer in map) {
+    for (var id in map[layer]) { // Search through all three layers
+      if (searchBy === 'key' && map[layer][id].toLowerCase() === key) {
+        // The caller has searched for a key, and we found it.
+        // Now we need to determine the layer on which it is, and
+        // add both to the return
+        ret.push({ 'key': id, 'layer': layer })
+        // return id
+      }
+
+      if (searchBy === 'id' && id.toLowerCase() === key) {
+        // The caller wanted to reverse an ID mapping, so
+        // we could potentially come up with up to three
+        // keys in three layers. This will be used, e.g.,
+        // for the applyKeyboardLayout function.
+        ret.push({ 'key': map[layer][id], 'layer': layer })
+        // return map[id]
+      }
+    }
   }
+
+  // After we've collected our up-to-three choices, return them.
+  return ret
 }

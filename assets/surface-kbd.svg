@@ -50,6 +50,24 @@
 
    <!-- GENERAL STYLES -->
    <style type="text/css">
+       /* This animation pulsates a key if it has the class "pulse" */
+       @keyframes pulsate-key {
+         0% {
+           stroke-opcaity: 1;
+           stroke-width: 0;
+         }
+
+         10% {
+           stroke-opacity: 1;
+           stroke-width: 1;
+         }
+
+         100% {
+           stroke-opacity: 0;
+           stroke-width: 6;
+         }
+       }
+
        .keyboard-surface {
          fill: #8b8b8b;
          stroke: #333333;
@@ -80,6 +98,11 @@
          fill: #aa6666;
        }
 
+       .surface.keyboard-keys rect.key.pulse {
+         stroke: #fde1a3;
+         animation: pulsate-key 1s infinite; /* Let the key's stroke pulsate */
+       }
+
        .surface.keyboard-keys text {
          fill: #ffffff;
          stroke: none;
@@ -93,6 +116,15 @@
          font-size: 3pt;
          text-anchor: end;
          dominant-baseline: baseline;
+       }
+
+       /* Adjust the font size of layer1, layer2, and layer3 key labels */
+       .surface.keyboard-keys text.layer1-key-label, .surface.keyboard-keys text.layer2-key-label {
+         font-size: 5pt; /* Same */
+       }
+
+       .surface.keyboard-keys text.layer3-key-label {
+         font-size: 5pt; /* Smaller font-size */
        }
 
        .surface.keyboard-keys .icon-outline {
@@ -232,56 +264,69 @@
 
     <!-- Row two: Numbers and Backspace -->
     <g id="key1-1">
-      <rect class="key" x="15"  y="35" width="30" height="30" />
-      <text x="30" y="50"></text>
+      <rect class="key" x="15" y="35" width="30" height="30" />
+      <text class="layer1-key-label" x="30" y="55"></text>
+      <text class="layer2-key-label" x="30" y="45"></text>
     </g>
     <g id="key1-2">
-      <rect class="key" x="50"  y="35" width="30" height="30" />
-      <text x="65" y="50"></text>
+      <rect class="key" x="50" y="35" width="30" height="30" />
+      <text class="layer1-key-label" x="65" y="55"></text>
+      <text class="layer2-key-label" x="65" y="45"></text>
     </g>
     <g id="key1-3">
-      <rect class="key" x="85"  y="35" width="30" height="30" />
-      <text x="100" y="50"></text>
+      <rect class="key" x="85" y="35" width="30" height="30" />
+      <text class="layer1-key-label" x="100" y="55"></text>
+      <text class="layer2-key-label" x="100" y="45"></text>
     </g>
     <g id="key1-4">
       <rect class="key" x="120" y="35" width="30" height="30" />
-      <text x="135" y="50"></text>
+      <text class="layer1-key-label" x="135" y="55"></text>
+      <text class="layer2-key-label" x="135" y="45"></text>
     </g>
     <g id="key1-5">
       <rect class="key" x="155" y="35" width="30" height="30" />
-      <text x="170" y="50"></text>
+      <text class="layer1-key-label" x="170" y="55"></text>
+      <text class="layer2-key-label" x="170" y="45"></text>
     </g>
     <g id="key1-6">
       <rect class="key" x="190" y="35" width="30" height="30" />
-      <text x="205" y="50"></text>
+      <text class="layer1-key-label" x="205" y="55"></text>
+      <text class="layer2-key-label" x="205" y="45"></text>
     </g>
     <g id="key1-7">
       <rect class="key" x="225" y="35" width="30" height="30" />
-      <text x="240" y="50"></text>
+      <text class="layer1-key-label" x="240" y="55"></text>
+      <text class="layer2-key-label" x="240" y="45"></text>
     </g>
     <g id="key1-8">
       <rect class="key" x="260" y="35" width="30" height="30" />
-      <text x="275" y="50" ></text>
+      <text class="layer1-key-label" x="275" y="55" ></text>
+      <text class="layer2-key-label" x="275" y="45" ></text>
     </g>
     <g id="key1-9">
       <rect class="key" x="295" y="35" width="30" height="30" />
-      <text x="310" y="50"></text>
+      <text class="layer1-key-label" x="310" y="55"></text>
+      <text class="layer2-key-label" x="310" y="45"></text>
     </g>
     <g id="key1-10">
       <rect class="key" x="330" y="35" width="30" height="30" />
-      <text x="345" y="50"></text>
+      <text class="layer1-key-label" x="345" y="55"></text>
+      <text class="layer2-key-label" x="345" y="45"></text>
     </g>
     <g id="key1-11">
       <rect class="key" x="365" y="35" width="30" height="30" />
-      <text x="380" y="50"></text>
+      <text class="layer1-key-label" x="380" y="55"></text>
+      <text class="layer2-key-label" x="380" y="45"></text>
     </g>
     <g id="key1-12">
       <rect class="key" x="400" y="35" width="30" height="30" />
-      <text x="415" y="50"></text>
+      <text class="layer1-key-label" x="415" y="55"></text>
+      <text class="layer2-key-label" x="415" y="45"></text>
     </g>
     <g id="key1-13">
       <rect class="key" x="435" y="35" width="30" height="30" />
-      <text x="450" y="50"></text>
+      <text class="layer1-key-label" x="450" y="55"></text>
+      <text class="layer2-key-label" x="450" y="45"></text>
     </g>
     <g id="backspace">
       <rect class="key" x="470" y="35" width="60" height="30" />
@@ -295,55 +340,61 @@
     </g>
     <g id="key2-1">
       <rect class="key" x="65"  y="70" width="30" height="30" />
-      <text x="80" y="85"></text>
+      <text class="layer1-key-label" x="80" y="85"></text>
+      <text class="layer3-key-label" x="90" y="95"></text>
     </g>
     <g id="key2-2">
       <rect class="key" x="100" y="70" width="30" height="30" />
-      <text x="115" y="85"></text>
+      <text class="layer1-key-label" x="115" y="85"></text>
     </g>
     <g id="key2-3">
       <rect class="key" x="135" y="70" width="30" height="30" />
-      <text x="150" y="85"></text>
+      <text class="layer1-key-label" x="150" y="85"></text>
+      <text class="layer3-key-label" x="160" y="95"></text>
     </g>
     <g id="key2-4">
       <rect class="key" x="170" y="70" width="30" height="30" />
-      <text x="185" y="85"></text>
+      <text class="layer1-key-label" x="185" y="85"></text>
     </g>
     <g id="key2-5">
       <rect class="key" x="205" y="70" width="30" height="30" />
-      <text x="220" y="85"></text>
+      <text class="layer1-key-label" x="220" y="85"></text>
     </g>
     <g id="key2-6">
       <rect class="key" x="240" y="70" width="30" height="30" />
-      <text x="255" y="85"></text>
+      <text class="layer1-key-label" x="255" y="85"></text>
     </g>
     <g id="key2-7">
       <rect class="key" x="275" y="70" width="30" height="30" />
-      <text x="290" y="85"></text>
+      <text class="layer1-key-label" x="290" y="85"></text>
     </g>
     <g id="key2-8">
       <rect class="key" x="310" y="70" width="30" height="30" />
-      <text x="325" y="85"></text>
+      <text class="layer1-key-label" x="325" y="85"></text>
     </g>
     <g id="key2-9">
       <rect class="key" x="345" y="70" width="30" height="30" />
-      <text x="360" y="85"></text>
+      <text class="layer1-key-label" x="360" y="85"></text>
     </g>
     <g id="key2-10">
       <rect class="key" x="380" y="70" width="30" height="30" />
-      <text x="395" y="85"></text>
+      <text class="layer1-key-label" x="395" y="85"></text>
     </g>
     <g id="key2-11">
       <rect class="key" x="415" y="70" width="30" height="30" />
-      <text x="430" y="85"></text>
+      <text class="layer1-key-label" x="430" y="85"></text>
+      <text class="layer2-key-label" x="440" y="95"></text>
     </g>
     <g id="key2-12">
       <rect class="key" x="450" y="70" width="30" height="30" />
-      <text x="465" y="85"></text>
+      <text class="layer1-key-label" x="465" y="80"></text>
+      <text class="layer2-key-label" x="465" y="90"></text>
+      <text class="layer3-key-label" x="475" y="90"></text>
     </g>
     <g id="key2-13">
       <rect class="key" x="485" y="70" width="45" height="30" />
-      <text x="508" y="85"></text>
+      <text class="layer1-key-label" x="508" y="80"></text>
+      <text class="layer2-key-label" x="508" y="90"></text>
     </g>
 
     <!-- Row four: Caps and Enter -->
@@ -354,47 +405,49 @@
     </g>
     <g id="key3-1">
       <rect class="key" x="75" y="105" width="30" height="30" />
-      <text x="90" y="120"></text>
+      <text class="layer1-key-label" x="90" y="120"></text>
     </g>
     <g id="key3-2">
       <rect class="key" x="110" y="105" width="30" height="30" />
-      <text x="125" y="120"></text>
+      <text class="layer1-key-label" x="125" y="120"></text>
     </g>
     <g id="key3-3">
       <rect class="key" x="145" y="105" width="30" height="30" />
-      <text x="160" y="120"></text>
+      <text class="layer1-key-label" x="160" y="120"></text>
     </g>
     <g id="key3-4">
       <rect class="key" x="180" y="105" width="30" height="30" />
-      <text x="195" y="120"></text>
+      <text class="layer1-key-label" x="195" y="120"></text>
     </g>
     <g id="key3-5">
       <rect class="key" x="215" y="105" width="30" height="30" />
-      <text x="230" y="120"></text>
+      <text class="layer1-key-label" x="230" y="120"></text>
     </g>
     <g id="key3-6">
       <rect class="key" x="250" y="105" width="30" height="30" />
-      <text x="265" y="120"></text>
+      <text class="layer1-key-label" x="265" y="120"></text>
     </g>
     <g id="key3-7">
       <rect class="key" x="285" y="105" width="30" height="30" />
-      <text x="300" y="120"></text>
+      <text class="layer1-key-label" x="300" y="120"></text>
     </g>
     <g id="key3-8">
       <rect class="key" x="320" y="105" width="30" height="30" />
-      <text x="335" y="120"></text>
+      <text class="layer1-key-label" x="335" y="120"></text>
     </g>
     <g id="key3-9">
       <rect class="key" x="355" y="105" width="30" height="30" />
-      <text x="370" y="120"></text>
+      <text class="layer1-key-label" x="370" y="120"></text>
     </g>
     <g id="key3-10">
       <rect class="key" x="390" y="105" width="30" height="30" />
-      <text x="405" y="120"></text>
+      <text class="layer1-key-label" x="405" y="120"></text>
+      <text class="layer2-key-label" x="415" y="130"></text>
     </g>
     <g id="key3-11">
       <rect class="key" x="425" y="105" width="30" height="30" />
-      <text x="440" y="120"></text>
+      <text class="layer1-key-label" x="440" y="120"></text>
+      <text class="layer2-key-label" x="450" y="130"></text>
     </g>
     <g id="enter">
       <rect class="key" x="460" y="105" width="70" height="30" />
@@ -408,43 +461,47 @@
     </g>
     <g id="key4-1">
       <rect class="key" x="100" y="140" width="30" height="30" />
-      <text x="115" y="155"></text>
+      <text class="layer1-key-label" x="115" y="155"></text>
     </g>
     <g id="key4-2">
       <rect class="key" x="135" y="140" width="30" height="30" />
-      <text x="150" y="155"></text>
+      <text class="layer1-key-label" x="150" y="155"></text>
     </g>
     <g id="key4-3">
       <rect class="key" x="170" y="140" width="30" height="30" />
-      <text x="185" y="155"></text>
+      <text class="layer1-key-label" x="185" y="155"></text>
     </g>
     <g id="key4-4">
       <rect class="key" x="205" y="140" width="30" height="30" />
-      <text x="220" y="155"></text>
+      <text class="layer1-key-label" x="220" y="155"></text>
     </g>
     <g id="key4-5">
       <rect class="key" x="240" y="140" width="30" height="30" />
-      <text x="255" y="155"></text>
+      <text class="layer1-key-label" x="255" y="155"></text>
     </g>
     <g id="key4-6">
       <rect class="key" x="275" y="140" width="30" height="30" />
-      <text x="290" y="155"></text>
+      <text class="layer1-key-label" x="290" y="155"></text>
     </g>
     <g id="key4-7">
       <rect class="key" x="310" y="140" width="30" height="30" />
-      <text x="325" y="155"></text>
+      <text class="layer1-key-label" x="325" y="155"></text>
+      <text class="layer3-key-label" x="335" y="165"></text>
     </g>
     <g id="key4-8">
       <rect class="key" x="345" y="140" width="30" height="30" />
-      <text x="360" y="155"></text>
+      <text class="layer1-key-label" x="360" y="160"></text>
+      <text class="layer2-key-label" x="360" y="150"></text>
     </g>
     <g id="key4-9">
       <rect class="key" x="380" y="140" width="30" height="30" />
-      <text x="395" y="155"></text>
+      <text class="layer1-key-label" x="395" y="160"></text>
+      <text class="layer2-key-label" x="395" y="150"></text>
     </g>
     <g id="key4-10">
       <rect class="key" x="415" y="140" width="30" height="30" />
-      <text x="430" y="155"></text>
+      <text class="layer1-key-label" x="430" y="160"></text>
+      <text class="layer2-key-label" x="430" y="150"></text>
     </g>
     <g id="shift-right">
       <rect class="key" x="450" y="140" width="80" height="30" />

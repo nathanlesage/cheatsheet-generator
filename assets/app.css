@@ -55,10 +55,16 @@ html, body {
 
 #shortcut-container ul li {
   list-style-type: none;
+  cursor: pointer;
+  transition: 0.5s all ease;
 }
 
 #shortcut-container ul li:nth-child(2n) {
   background-color: #eeeeee;
+}
+
+#shortcut-container ul li:hover {
+  background-color: #ff7066; /*color: #fde1a3;*/
 }
 
 @media (min-width: 800px) {

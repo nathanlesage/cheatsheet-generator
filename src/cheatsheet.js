@@ -18,9 +18,10 @@ import applyKeyboardLayout from './apply-keyboard-layout.js'
 import displayKeyboard from './display-keyboard.js'
 import buildKeyMaps from './build-key-maps.js'
 import highlightKeys from './highlight-keys.js'
+import pulsateKeys from './pulsate-keys.js'
 
 export default class Cheatsheet {
-  constructor () {
+  constructor() {
     this._previousPlatform = 'darwin'
 
     // Load after everything has been loaded
@@ -34,14 +35,47 @@ export default class Cheatsheet {
       document.getElementById('shift-key').onchange = this.stateChange.bind(this)
       document.getElementById('platform-select').onchange = this.stateChange.bind(this)
       document.getElementById('layout-select').onchange = this.stateChange.bind(this)
+      document.getElementById('shortcut-container').onmouseover = this.pulsateKeys.bind(this)
+      document.getElementById('shortcut-container').onmouseout = this.stopPulse.bind(this)
     })
+  }
+
+  pulsateKeys(event) {
+    var target = event.target
+    if (!['LI', 'STRONG'].includes(target.tagName)) return // Not what we need
+    // Determine the target's class -- either the <li> or the <strong>
+    if (target.tagName === 'LI') {
+      // Select the
+      target = target.getElementsByClassName('shortcut')[0]
+    }
+
+    // Retrieve the correct shortcut code
+    var shortcut = target.innerText
+    var layout = document.getElementById('layout-select').value
+    var platform = document.getElementById('platform-select').value
+    // Now highlight the respective keys
+    pulsateKeys(shortcut, layout, platform)
+  }
+
+  stopPulse(event) {
+    // Removes the pulse class from everything
+    var sanitizedPlatform = (document.getElementById('platform-select').value === 'darwin') ? 'mac' : 'surface'
+    var kbd = document.getElementById(sanitizedPlatform) // Retrieve the correct keyboard
+    for (var key of kbd.getElementsByTagName('rect')) {
+      key.classList.remove('pulse')
+    }
+
+    // Don't forget the enter key
+    if (sanitizedPlatform === 'mac') {
+      kbd.querySelectorAll('#enter')[0].getElementsByTagName('path')[0].classList.remove('pulse')
+    }
   }
 
   /**
    * Executes everytime there's a state change in the controls.
    * @param {Event} event The event from the DOM update
    */
-  stateChange (event) {
+  stateChange(event) {
     var layout = document.getElementById('layout-select').value
     var platform = document.getElementById('platform-select').value
     var sanitizedPlatform = (platform === 'darwin') ? 'mac' : 'surface'

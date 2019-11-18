@@ -30,6 +30,7 @@ export default function buildKeyMaps (shortcuts) {
     'Ctrl': [],
     'Cmd': [],
     'Alt': [],
+    'Shift': [],
     'Cmd+Alt': [],
     'Cmd+Shift': [],
     'Cmd+Alt+Shift': [],
@@ -77,6 +78,8 @@ export default function buildKeyMaps (shortcuts) {
       maps['Ctrl+Alt'].push(cut)
     } else if (ctrlKey && altKey && !cmdKey && !shiftKey) {
       maps['Ctrl+Alt'].push(cut)
+    } else if (ctrlKey && shiftKey && !cmdKey && !altKey) {
+      maps['Ctrl+Shift'].push(cut)
     } else if (cmdKey && altKey && shiftKey && !ctrlKey) {
       maps['Cmd+Alt+Shift'].push(cut)
     } else if (cmdKey && shiftKey && !altKey && !ctrlKey) {
@@ -89,6 +92,8 @@ export default function buildKeyMaps (shortcuts) {
       maps['Cmd'].push(cut)
     } else if (ctrlKey && !cmdKey && !altKey && !shiftKey) {
       maps['Ctrl'].push(cut)
+    } else if (shiftKey && !cmdKey && !altKey && !ctrlKey) {
+      maps['Shift'].push(cut)
     } else {
       maps['vanilla'].push(cut)
     }
