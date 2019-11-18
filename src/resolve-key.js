@@ -46,6 +46,15 @@ export default function resolveKey (key, layout, platform, searchBy = 'key') {
     'windows', 'alt-left', 'alt-right', 'menu'
   ]
 
+  // Whenever a user uses words instead of the characters
+  if (key === 'comma') key = ','
+  if (key === 'plus') key = '+'
+  if (key === 'minus') key = '-'
+  if (key === 'up') key = 'arrow-up'
+  if (key === 'down') key = 'arrow-down'
+  if (key === 'left') key = 'arrow-left'
+  if (key === 'right') key = 'arrow-right'
+
   // Return sane defaults for some of the optional keys
   if (key === 'alt' && sanitisedPlatform === 'surface') return [{ 'key': 'alt-left', 'layer': 'layer1' }]
   if (key === 'alt' && sanitisedPlatform === 'mac') return [{ 'key': 'option-left', 'layer': 'layer1' }]
@@ -56,12 +65,6 @@ export default function resolveKey (key, layout, platform, searchBy = 'key') {
   if (key === 'esc') return [{ 'key': 'escape', 'layer': 'layer1' }]
   if (key === 'delete' && sanitisedPlatform === 'mac') return [{ 'key': 'backspace', 'layer': 'layer1' }]
   if (specialKeys.includes(key)) return [{ 'key': key, 'layer': 'layer1' }] // Easy way out
-
-
-  // Whenever a user uses words instead of the characters
-  if (key === 'comma') key = ','
-  if (key === 'plus') key = '+'
-  if (key === 'minus') key = '-'
 
 
   // Now we got the correct layout. Search for the thing!
