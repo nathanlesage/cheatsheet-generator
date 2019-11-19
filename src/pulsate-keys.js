@@ -47,6 +47,9 @@ export default function pulsateKeys (shortcut, layout, platform) {
           var keyToAdd = (platform === 'darwin') ? 'option-left' : 'alt-left'
           if (!keysToPulsate.includes(keyToAdd)) keysToPulsate.push(keyToAdd)
           break
+        case 'layer4': // Function key layer (on the F-keys)
+          if (!keysToPulsate.includes('fn')) keysToPulsate.push('fn')
+          break
       }
       keysToPulsate.push(resolvedKey.key)
     }

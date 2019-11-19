@@ -70,3 +70,8 @@ layer3:
   key2-3: '€'
   key2-12: '~'
   key4-7: 'µ'
+layer4: # Function key layer
+ f9: 'Home'
+ f10: 'End'
+ f11: 'Page-Up'
+ f12: 'Page-Down'

@@ -107,6 +107,10 @@ export default function highlightKeys (maps) {
         resolveSelectors += (platform === 'mac') ? ', #option-left' : ', #alt-left'
       }
 
+      if (resolvedKey.layer === 'layer4') {
+        resolveSelectors += ', #fn'
+      }
+
       var highlight = document.querySelectorAll(resolveSelectors)
       if (!highlight) {
         console.warn('No mapping to key ' + k + ' on layout ' + layout + ' and platform ' + platform)
@@ -129,6 +133,10 @@ export default function highlightKeys (maps) {
     list.appendChild(item)
   }
 
-  document.getElementById('shortcut-container').innerHTML = ''
-  document.getElementById('shortcut-container').appendChild(list)
+  if (map.length === 0) {
+    document.getElementById('shortcut-container').innerHTML = '<p>No shortcuts available</p>'
+  } else {
+    document.getElementById('shortcut-container').innerHTML = ''
+    document.getElementById('shortcut-container').appendChild(list)
+  }
 }

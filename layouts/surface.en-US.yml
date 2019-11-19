@@ -69,3 +69,8 @@ layer2:
   key4-9: '>'
   key4-10: '?'
 layer3:
+layer4: # Function key layer
+ f9: 'Home'
+ f10: 'End'
+ f11: 'Page-Up'
+ f12: 'Page-Down'

@@ -55,6 +55,7 @@ export default function applyKeyboardLayout (objectId, platform, layout) {
     }
 
     for (let label of labels) {
+      if (label.layer === 'layer4') continue // Layer4 is fixed for all layouts
       // Then, retrieve the label node (there's only one layer1/2/3 label per key)
       var labelNode = key.parentNode.getElementsByClassName(label.layer + '-key-label')[0]
       // Create a text node and add it to the key.

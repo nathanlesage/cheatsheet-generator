@@ -43,27 +43,32 @@ export default function resolveKey (key, layout, platform, searchBy = 'key') {
     'fn', 'control', 'command-left', 'command-right',
     'option-left', 'option-right', 'space',
     'arrow-left', 'arrow-up', 'arrow-down', 'arrow-right',
-    'windows', 'alt-left', 'alt-right', 'menu'
+    'windows', 'alt-left', 'alt-right', 'menu',
+    // 'page-up', 'page-down', 'home', 'end' // Windows/Linux only, will be resolved to layer4 (Fn)
   ]
 
   // Whenever a user uses words instead of the characters
   if (key === 'comma') key = ','
   if (key === 'plus') key = '+'
   if (key === 'minus') key = '-'
+
+  // Resolve shorthands
   if (key === 'up') key = 'arrow-up'
   if (key === 'down') key = 'arrow-down'
   if (key === 'left') key = 'arrow-left'
   if (key === 'right') key = 'arrow-right'
+  if ([ 'pgdn', 'pagedown' ].includes(key)) key = 'page-down'
+  if ([ 'pgup', 'pageup' ].includes(key)) key = 'page-up'
+  if (key === 'option') key = 'option-left'
+  if (key === 'cmd') key = 'command-left'
+  if (key === 'shift') key = 'shift-left'
+  if (key === 'ctrl') key = 'control'
+  if (key === 'esc') key = 'escape'
+  if (key === 'delete' && sanitisedPlatform === 'mac') key = 'backspace'
+  if (key === 'alt' && sanitisedPlatform === 'surface') key = 'alt-left'
+  if (key === 'alt' && sanitisedPlatform === 'mac') key = 'option-left'
 
-  // Return sane defaults for some of the optional keys
-  if (key === 'alt' && sanitisedPlatform === 'surface') return [{ 'key': 'alt-left', 'layer': 'layer1' }]
-  if (key === 'alt' && sanitisedPlatform === 'mac') return [{ 'key': 'option-left', 'layer': 'layer1' }]
-  if (key === 'option') return [{ 'key': 'option-left', 'layer': 'layer1' }]
-  if (key === 'cmd') return [{ 'key': 'command-left', 'layer': 'layer1' }]
-  if (key === 'shift') return [{ 'key': 'shift-left', 'layer': 'layer1' }]
-  if (key === 'ctrl') return [{ 'key': 'control', 'layer': 'layer1' }]
-  if (key === 'esc') return [{ 'key': 'escape', 'layer': 'layer1' }]
-  if (key === 'delete' && sanitisedPlatform === 'mac') return [{ 'key': 'backspace', 'layer': 'layer1' }]
+  // Return the special keys immediately
   if (specialKeys.includes(key)) return [{ 'key': key, 'layer': 'layer1' }] // Easy way out
 
 
