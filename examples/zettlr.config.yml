@@ -47,6 +47,7 @@ shortcuts:
     CmdOrCtrl+K: Create link
     CmdOrCtrl+F: Search file
     CmdOrCtrl+L: Generate ID
+    CmdOrCtrl+T: Create tasklist
     CmdOrCtrl+0: Reset editor zoom
     CmdOrCtrl+Minus: Decrease zoom
     Tab: Indent or move forward one table cell
