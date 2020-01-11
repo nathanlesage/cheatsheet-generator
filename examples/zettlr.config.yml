@@ -64,6 +64,8 @@ shortcuts:
     CmdOrCtrl+Down: Move to the bottom of the file list
     CmdOrCtrl+Shift+Up: Move ten files up in the file list
     CmdOrCtrl+Shift+Down: Move ten files down in the file list
+    Alt+Up: Swap the current line with the line above
+    Alt+Down: Swap the current line with the line below
   darwin:
     Cmd+Ctrl+F: Toggle fullscreen
     Cmd+Alt+I: Open developer tools (Debug only)
