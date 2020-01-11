@@ -1,0 +1,200 @@
+# This is a non-exhaustive list of default
+# shortcuts for the Open Source Photoshop
+# alternative GIMP.
+title: GIMP Default Shortcuts
+shortcuts:
+  crossplatform:
+    CmdOrCtrl+1: Open recent image 01
+    CmdOrCtrl+2: Open recent image 02
+    CmdOrCtrl+3: Open recent image 03
+    CmdOrCtrl+4: Open recent image 04
+    CmdOrCtrl+5: Open recent image 05
+    CmdOrCtrl+6: Open recent image 06
+    CmdOrCtrl+7: Open recent image 07
+    CmdOrCtrl+8: Open recent image 08
+    CmdOrCtrl+9: Open recent image 09
+    CmdOrCtrl+0: Open recent image 10
+    CmdOrCtrl+O: Open image
+    CmdOrCtrl+Alt+O: Open image as new layer
+    CmdOrCtrl+S: Save image
+    CmdOrCtrl+Shift+S: Save image as ...
+    X: Swap Colors
+    D: Default Colors
+    F1: Help
+    Shift+F1: Context Help
+    CmdOrCtrl+A: Select all
+    CmdOrCtrl+Z: Undo
+    CmdOrCtrl+Y: Redo
+    CmdOrCtrl+C: Copy selection
+    CmdOrCtrl+X: Cut selection
+    CmdOrCtrl+Shift+C: Copy visible
+    CmdOrCtrl+Shift+V: Paste as new image
+    CmdOrCtrl+V: Paste clipboard
+    CmdOrCtrl+K: Clear selection
+    CmdOrCtrl+,: Fill with foreground Color
+    CmdOrCtrl+.: Fill with background Color
+    "CmdOrCtrl+;": Fill with Pattern
+    CmdOrCtrl+Shift+L: Float selection
+  darwin:
+   Cmd+Alt+F: Show in file manager
+   "0": Use next foreground color
+   "9": Use previous foreground color
+   Cmd+Alt+V: Paste in Place
+  win32:
+    R: Rect Select
+    E: Ellipse Select
+    F: Free Select
+    U: Fuzzy Select
+    Shift+O: Select by Color
+    I: Scissors
+    B: Paths
+    O: Color Picker
+    M: Move
+    Shift+C: Crop and Resize
+    Shift+R: Rotate
+    Shift+T: Scale
+    Shift+S: Shear
+    Shift+P: Perspective
+    Shift+F: Flip
+    T: Text
+    Shift+B: Bucket Fill
+    L: Blend
+    N: Pencil
+    P: Paintbrush
+    Shift+E: Eraser
+    A: Airbrush
+    K: Ink
+    C: Clone
+    V: Convolve
+    S: Smudge
+    Shift+D: Dodge/Burn
+    Ctrl+N: New image
+    Ctrl+O: Open image
+    Ctrl+D: Duplicate image
+    Ctrl+Q: Quit
+    Ctrl+L: Layers
+    Shift+Ctrl+B: Brushes
+    Shift+Ctrl+P: Patterns
+    Ctrl+G: Gradients
+    Ctrl+P: Palettes
+    Shift+Ctrl+I: Info window
+    Shift+Ctrl+N: Navigation window
+    Alt+F4: Close the window
+    Tab: Jump to next widget
+    Shift+Tab: Jump to previous widget
+    Enter: Set the new value
+    Space: Activate current button or list
+    Ctrl+Alt+PgUp: In a multi-tab dialog, switch tabs
+    Shift+L: Open Location
+    Alt+Up: Up-Folder
+    Alt+Down: Down-Folder
+    Alt+Home: Home folder
+    Esc: Close dialog
+    F10: Main Menu
+    Shift+F10: Drop-down Menu
+    F11: Toggle fullscreen
+    Shift+Q: Toggle quickmask
+    Ctrl+W: Close document window
+    Plus: Zoom In
+    Minus: Zoom Out
+    "1": "Zoom 1:1"
+    Ctrl+E: Shrink wrap
+    Shift+Ctrl+E: Fit image in window
+    Shift+Ctrl+R: Toggle rulers
+    Shift+Ctrl+T: Toggle guides
+    Shift+Ctrl+C: Named copy selection
+    Shift+Ctrl+X: Named cut selection
+    Shift+Ctrl+V: Named paste clipboard
+    PageUp: Select the layer above
+    PageDown: Select the layer below
+    Home: Select the first layer
+    End: Select the last layer
+    Ctrl+M: Merge visible Layers
+    Ctrl+H: Anchor layer
+    Ctrl+T: Toggle selections
+    Ctrl+Shift+A: Select none
+    Ctrl+I: Invert selection
+    Shift+V: Path to selection
+    Ctrl+F: Repeat last plug-in
+    Ctrl+Shift+F: Show last plug-in
+  linux:
+    F1: Help
+    Shift+F1: Context Help
+    R: Rect Select
+    E: Ellipse Select
+    F: Free Select
+    U: Fuzzy Select
+    Shift+O: Select by Color
+    I: Scissors
+    B: Paths
+    O: Color Picker
+    M: Move
+    Shift+C: Crop and Resize
+    Shift+R: Rotate
+    Shift+T: Scale
+    Shift+S: Shear
+    Shift+P: Perspective
+    Shift+F: Flip
+    T: Text
+    Shift+B: Bucket Fill
+    L: Blend
+    N: Pencil
+    P: Paintbrush
+    Shift+E: Eraser
+    A: Airbrush
+    K: Ink
+    C: Clone
+    V: Convolve
+    S: Smudge
+    Shift+D: Dodge/Burn
+    X: Swap Colors
+    D: Default Colors
+    Ctrl+N: New image
+    Ctrl+D: Duplicate image
+    Ctrl+Shift+S: Save under a new name
+    Ctrl+Q: Quit
+    Ctrl+L: Layers
+    Shift+Ctrl+B: Brushes
+    Shift+Ctrl+P: Patterns
+    Ctrl+G: Gradients
+    Ctrl+P: Palettes
+    Shift+Ctrl+I: Info window
+    Shift+Ctrl+N: Navigation window
+    Alt+F4: Close the window
+    Tab: Jump to next widget
+    Shift+Tab: Jump to previous widget
+    Enter: Set the new value
+    Space: Activate current button or list
+    Ctrl+Alt+PgUp: In a multi-tab dialog, switch tabs
+    Shift+L: Open Location
+    Alt+Up: Up-Folder
+    Alt+Down: Down-Folder
+    Alt+Home: Home folder
+    Esc: Close dialog
+    f10: Main Menu
+    Shift+F10: Drop-down Menu
+    F11: Toggle fullscreen
+    Shift+Q: Toggle quickmask
+    Ctrl+W: Close document window
+    Plus: Zoom In
+    Minus: Zoom Out
+    "1": "Zoom 1:1"
+    Ctrl+E: Shrink wrap
+    Shift+Ctrl+E: Fit image in window
+    Shift+Ctrl+R: Toggle rulers
+    Shift+Ctrl+T: Toggle guides
+    Shift+Ctrl+C: Named copy selection
+    Shift+Ctrl+X: Named cut selection
+    Shift+Ctrl+V: Named paste clipboard
+    PageUp: Select the layer above
+    PageDown: Select the layer below
+    Home: Select the first layer
+    End: Select the last layer
+    Ctrl+M: Merge visible Layers
+    Ctrl+H: Anchor layer
+    Ctrl+T: Toggle selections
+    Ctrl+Shift+A: Select none
+    Ctrl+I: Invert selection
+    Shift+V: Path to selection
+    Ctrl+F: Repeat last plug-in
+    Ctrl+Shift+F: Show last plug-in
