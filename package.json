@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "sanitize-filename": "^1.6.3",
-    "webpack": "^4.42.0",
+    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "yaml": "^1.8.2"
+    "yaml": "^1.8.3"
   }
 }
