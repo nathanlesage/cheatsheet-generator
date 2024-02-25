@@ -1,0 +1,119 @@
+name: Reusable user config build
+
+on:
+  workflow_call:
+    inputs:
+      build_matrix_path:
+        description: "Path to the build matrix file"
+        default: "build.yaml"
+        required: false
+        type: string
+      config_path:
+        description: "Path to the config directory"
+        default: "config"
+        required: false
+        type: string
+      archive_name:
+        description: "Archive output file name"
+        default: "cheatsheet"
+        required: false
+        type: string
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    name: Fetch Build matrix
+    outputs:
+      build_matrix: ${{ env.build_matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install yaml2json
+        run: python3 -m pip install remarshal
+
+      - name: Fetch Build Matrix
+        run: |
+          echo "build_matrix=$(yaml2json '${{ inputs.build_matrix_path }}' | jq -c .)" >> $GITHUB_ENV
+          yaml2json "${{ inputs.build_matrix_path }}" | jq
+
+  build:
+    runs-on: ubuntu-latest
+    # container:
+    #   image: node:20.11.1-bookworm
+    needs: matrix
+    name: Build
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.matrix.outputs.build_matrix) }}
+    steps:
+      - name: Checkout configs
+        uses: actions/checkout@v4
+    
+      - name: Create build directory
+        run: |
+          echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
+
+      - name: Prepare variables
+        shell: sh -x {0}
+        env:
+          config: ${{ matrix.config }}
+          config_name: ${{ matrix.config-name }}
+          artifact_name: ${{ matrix.artifact-name }}
+        run: |
+          echo "base_dir=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+          echo "ch_version=${CHEATSHEET_VERSION}" >> $GITHUB_ENV
+          echo "config_file_name=${config}" >> $GITHUB_ENV
+          echo "config_name=${config_name:-${config}}" >> $GITHUB_ENV
+          echo "artifact_name=${artifact_name:-${config}-cheatsheet}" >> $GITHUB_ENV
+          echo "npm_config_cache=$(npm config get cache)" >> $GITHUB_ENV
+          echo "cheatsheet_dir=${GITHUB_WORKSPACE}/cheatsheet" >> $GITHUB_ENV
+
+      # - name: Copy config files to isolated temporary directory
+      #   run: |
+      #     if [ "${{ env.base_dir }}" != "${GITHUB_WORKSPACE}" ]; then
+      #       mkdir "${{ env.base_dir }}/${{ inputs.config_path }}"
+      #       cp -R ${{ inputs.config_path }}/* "${{ env.base_dir }}/${{ inputs.config_path }}/"
+      #     fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.1
+          cache: npm
+          cache-dependency-path: ${{ env.base }}/package-lock.json
+
+      - name: Checkout Cheatsheet
+        uses: actions/checkout@v4
+        with:
+          repository: senz/cheatsheet-generator
+          path: ${{ env.cheatsheet_dir }}
+          # ref: ${{ env.ch_version }} 
+        
+      - name: symlink config
+        working-directory: ${{ env.base_dir }}
+        run: |
+          ln -sv "${{ inputs.config_path }}/${{ env.config_file_name }}" "${{ env.cheatsheet_dir }}/config.yml"
+
+      - run: npm ci
+        working-directory: ${{ env.base_dir }}
+
+      - run: npm run build
+        working-directory: ${{ env.base_dir }}
+
+      - name: Archive (${{ env.config_name }})
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-${{ env.artifact_name }}
+          path: ${{ env.cheatsheet_dir }}/dist
+
+  merge:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Merge Output Artifacts
+    steps:
+      - name: Merge Artifacts
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: ${{ inputs.archive_name }}
+          pattern: artifact-*
+          delete-merged: true
