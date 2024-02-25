@@ -18,7 +18,7 @@ It takes your shortcuts and creates a single-file cheatsheet which you can then 
 
 First and foremost, you need to have **Node.js** installed on your computer. Optionally, make sure you got **Yarn**. Then either clone this repository, or download the ZIP file of it and extract it. Next, you need to install the dependencies (Webpack and YAML), so that building the maps works. Simply run `npm install` or `yarn install` in the directory to install them.
 
-Then you can adapt the package and generate your own shortcuts. Simply copy the file `config.example.yml` to `config.yml` and add your shortcuts to it. Modify the settings if you wish. Finally, depending on whether you use NPM or Yarn, run `npm run build` or `yarn build`. The final cheatsheet will reside in `./build`.
+Then you can adapt the package and generate your own shortcuts. Simply copy the file `config.example.yml` to `config.yml` and add your shortcuts to it. Modify the settings if you wish. Finally, depending on whether you use NPM or Yarn, run `npm run build` or `yarn build`. The final cheatsheet will reside in `./dist`.
 
 Need some inspiration? Then head over to the `./examples`-directory and have a look at some settings that will out of the box generate beautiful cheatsheets.
 
