@@ -6,7 +6,6 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "webpack": "webpack",
     "build": "webpack && node ./scripts/build.js"
   },
   "devDependencies": {
